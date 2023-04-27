@@ -1,4 +1,6 @@
 import SearchIcon from '@material-ui/icons/Search';
+import NotificationsIcon from '@material-ui/icons/Notifications';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import "./navbar.scss"
 
 export const Navbar = () => {
@@ -18,7 +20,11 @@ export const Navbar = () => {
                 <div className="right">
                     <SearchIcon />
                     <span>KIDS</span>
-                    <Notifications />
+                    <NotificationsIcon />
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQpS0JQ0TW5ZgJ1ki2FqBcVmJa89Mcj4pWcw&usqp=CAU"
+                        alt=""
+                    />
+                    <ArrowDropDownIcon />
                 </div>
             </div>
         </div>

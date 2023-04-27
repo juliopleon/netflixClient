@@ -4,9 +4,38 @@
 
     .container {
         padding: 0px 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 70px;
 
-        img {
-            height: 25px;
+
+        .left {
+            display: flex;
+            align-items: center;
+
+            img {
+                height: 25px;
+                margin-right: 40px;
+            }
+
+            span {
+                margin-right: 20px;
+                cursor: pointer;
+            }
+        }
+
+        .right {
+            display: flex;
+            align-items: center;
+
+            img {
+                width: 30px;
+                height: 25px;
+                border-radius: 5px;
+                object-fit: cover;
+                cursor: pointer;
+            }
         }
     }
 }
