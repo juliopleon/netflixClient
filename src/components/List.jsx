@@ -8,7 +8,7 @@ export default function List() {
         <div className="list">
             <span className="listTitle">Continue watching</span>
             <div className="wrapper">
-                <ArrowBackIosOutlinedIcon />
+                <ArrowBackIosOutlinedIcon className="sliderArrow left" />
                 <div className="container">
                     <ListItem />
                     <ListItem />
@@ -28,7 +28,7 @@ export default function List() {
                     <ListItem />
                     <ListItem />
                 </div>
-                <ArrowForwardIosOutlinedIcon />
+                <ArrowForwardIosOutlinedIcon className="sliderArrow right" />
             </div>
         </div>
     )
