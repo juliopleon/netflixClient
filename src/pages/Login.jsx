@@ -14,11 +14,12 @@ export default function Login() {
                 </div>
             </div>
             <div className="container">
-                <h1>Unlimited movies and Tv Shows, and more</h1>
-                <h2>Watch anywhere, cancel anytime.</h2>
-                <p>
-                    Ready to watch? Enter your email to sign up or Sign in
-                </p>
+                <form>
+                    <h1>Sign In</h1>
+                    <input type="email" placeholder="Email or Phone Number" />
+                    <input type="password" placeholder="Password" />
+                    <button className="loginButton">Sign In</button>
+                </form>
             </div>
         </div>
     )
