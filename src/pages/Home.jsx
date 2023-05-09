@@ -14,7 +14,7 @@ export const Home = () => {
             <List />
             <List />
         </div>
-    )
+    );
 }
 
 // export default Home;
