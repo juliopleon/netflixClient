@@ -15,9 +15,9 @@ import {
 const App = () => {
     return (<BrowserRouter>
         <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/*" element={<Home />} />
             <Route path="/movies" element={<Home type="movies" />} />
-            <Route path="/movies" element={<Home type="movies" />} />
+            <Route path="/series" element={<Home type="series" />} />
         </Routes>
     </BrowserRouter>
     );
