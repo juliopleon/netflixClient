@@ -21,7 +21,9 @@ export const Navbar = () => {
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1597px-Netflix_2015_logo.svg.png?20190206123158"
                         alt=""
                     />
-                    <span>Homepage</span>
+                    <Link to="/" className='link'>
+                        <span>Homepage</span>
+                    </Link>
                     <Link to="/series" className='link'>
                         <span>Tv Shows</span>
                     </Link>
