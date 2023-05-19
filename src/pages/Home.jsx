@@ -4,11 +4,11 @@ import "./shome.scss"
 import List from "../components/List"
 
 
-export const Home = () => {
+export const Home = ({ type }) => {
     return (
         <div className="home">
             <Navbar />
-            <Featured />
+            <Featured type={type} />
             <List />
             <List />
             <List />
