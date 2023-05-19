@@ -3,6 +3,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { useState } from 'react';
 import "./navbar.scss"
+import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -21,8 +22,12 @@ export const Navbar = () => {
                         alt=""
                     />
                     <span>Homepage</span>
-                    <span>Tv Shows</span>
-                    <span>Movies</span>
+                    <Link to="/series" className='link'>
+                        <span>Tv Shows</span>
+                    </Link>
+                    <Link to="/movies" className='link'>
+                        <span>Movies</span>
+                    </Link>
                     <span>New and Popular</span>
                     <span>My List</span>
                 </div>
