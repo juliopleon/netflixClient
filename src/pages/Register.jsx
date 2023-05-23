@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import "./register.scss";
-// import { Navigate } from "react-router-dom";
+
 
 export default function Register() {
     const [email, setEmail] = useState("")
