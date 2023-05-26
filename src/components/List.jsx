@@ -42,5 +42,5 @@ export default function List({ list }) {
                 <ArrowForwardIosOutlinedIcon className="sliderArrow right" onClick={() => handleClick("right")} />
             </div>
         </div>
-    )
+    );
 }
