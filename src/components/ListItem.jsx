@@ -5,6 +5,7 @@ import ThumbUpAltOutlinedIcon from '@material-ui/icons/ThumbUpAltOutlined';
 import ThumbDownOutlinedIcon from '@material-ui/icons/ThumbDownOutlined';
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function ListItem({ index, item }) {
     const [isHovered, setIsHovered] = useState(false);
@@ -52,7 +53,7 @@ export default function ListItem({ index, item }) {
 
     // const trailer = ""
     return (
-        <Link>
+        <Link to={{ pathname: "/watch", movie: movie }}>
             <div className="listItem"
                 style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
                 onMouseEnter={() => setIsHovered(true)}
