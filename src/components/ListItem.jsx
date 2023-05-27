@@ -15,7 +15,7 @@ export default function ListItem({ index, item }) {
             try {
                 const res = await axios.get(`/movies/find/${item}`, {
                     headers: {
-                        token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NTlhNWJiNmRkYjRlODg1NTMzZGRhNSIsImlzQWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjg1MDgzNzU5LCJleHAiOjE2ODU1MTU3NTl9.0fV_Lz693oIIF3vcXeWsyylhENyxvSym23C_BbIA17o"
+                        token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NTlhNWJiNmRkYjRlODg1NTMzZGRhNSIsImlzQWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjg1MjA3NTgwLCJleHAiOjE2ODU2Mzk1ODB9.QjTHc8Ka0Ult1if5c_4GSQkxDolT4kFxrD5pWLelIVs"
                     },
                 });
                 setMovie(res.data);
@@ -25,6 +25,7 @@ export default function ListItem({ index, item }) {
         }
         getMovie()
     }, [item])
+
     // const trailer = ""
     return (
         <div className="listItem"
