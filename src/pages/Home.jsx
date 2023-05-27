@@ -9,22 +9,42 @@ import axios from "axios";
 export const Home = ({ type }) => {
     const [lists, setLists] = useState([]);
     const [genre, setGenre] = useState(null);
+    // useEffect(() => {
+    //     const getRandomLists = async () => {
+    //         try {
+    //             const res = await axios.get(`lists${type ? "?type=" + type : ""}${genre ? "&genre=" + genre : ""}`, {
+    //                 headers: {
+    //                     token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NTlhNWJiNmRkYjRlODg1NTMzZGRhNSIsImlzQWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjg1MjA3NTgwLCJleHAiOjE2ODU2Mzk1ODB9.QjTHc8Ka0Ult1if5c_4GSQkxDolT4kFxrD5pWLelIVs"
+    //                 },
+    //             });
+    //             // console.log(res)
+    //             setLists(res.data);
+    //         } catch (err) {
+    //             console.log(err)
+    //         }
+    //     };
+    //     getRandomLists();
+    // }, [type, genre]);
+
     useEffect(() => {
         const getRandomLists = async () => {
             try {
-                const res = await axios.get(`lists${type ? "?type=" + type : ""}${genre ? "&genre=" + genre : ""}`, {
-                    headers: {
-                        token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NTlhNWJiNmRkYjRlODg1NTMzZGRhNSIsImlzQWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjg1MjA3NTgwLCJleHAiOjE2ODU2Mzk1ODB9.QjTHc8Ka0Ult1if5c_4GSQkxDolT4kFxrD5pWLelIVs"
-                    },
+                const token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NTlhNWJiNmRkYjRlODg1NTMzZGRhNSIsImlzQWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjg1MjA3NTgwLCJleHAiOjE2ODU2Mzk1ODB9.QjTHc8Ka0Ult1if5c_4GSQkxDolT4kFxrD5pWLelIVs";
+                const url = `lists${type ? "?type=" + type : ""}${genre ? "&genre=" + genre : ""}`;
+
+                const response = await axios.get(url, {
+                    headers: { token }
                 });
-                // console.log(res)
-                setLists(res.data);
-            } catch (err) {
-                console.log(err)
+
+                setLists(response.data);
+            } catch (error) {
+                console.log(error);
             }
         };
+
         getRandomLists();
     }, [type, genre]);
+
     return (
         <div className="home">
             <Navbar />
