@@ -19,7 +19,7 @@ export default function ListItem({ index, item }) {
     //                     token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NTlhNWJiNmRkYjRlODg1NTMzZGRhNSIsImlzQWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjg1MjA3NTgwLCJleHAiOjE2ODU2Mzk1ODB9.QjTHc8Ka0Ult1if5c_4GSQkxDolT4kFxrD5pWLelIVs"
     //                 },
     //             });
-    //             setMovie(res.data);
+    //             setMovie(res.data[0]);
     //         } catch (err) {
     //             console.log(err);
     //         }
@@ -42,7 +42,7 @@ export default function ListItem({ index, item }) {
                 );
                 const movieResponses = await Promise.all(movieRequests);
                 const moviesData = movieResponses.map(res => res.data);
-                setMovie(moviesData);
+                setMovie(moviesData[0]);
             } catch (err) {
                 console.log(err);
             }

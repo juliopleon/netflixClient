@@ -2,6 +2,7 @@ import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import "./featured.scss"
 import { useEffect, useState } from 'react';
+import axios from 'axios'
 
 export default function Featured({ type }) {
     const [content, setContent] = useState({})
@@ -9,12 +10,18 @@ export default function Featured({ type }) {
     useEffect(() => {
         const getRandomContent = async () => {
             try {
-                const res = await axios.get(`/movies/random?type=${type}`)
+                const res = await axios.get(`/movies/random?type=${type}`, {
+                    headers: {
+                        token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NTlhNWJiNmRkYjRlODg1NTMzZGRhNSIsImlzQWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjg1MjA3NTgwLCJleHAiOjE2ODU2Mzk1ODB9.QjTHc8Ka0Ult1if5c_4GSQkxDolT4kFxrD5pWLelIVs"
+                    },
+                })
+                setContent(res.data[0])
             } catch (err) {
                 console.log(err)
             }
-        }
-    })
+        };
+        getRandomContent();
+    }, [type])
 
     return (
         <div className="featured">
@@ -39,13 +46,13 @@ export default function Featured({ type }) {
                     </select>
                 </div>
             )}
-            <img src="https://images.unsplash.com/photo-1635805737707-575885ab0820?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bW92aWUlMjBwb3N0ZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" alt="" />
+            <img src={content.img} alt="" />
             <div className="info">
                 <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRtvAfcDwKz9jfFygMK6z4uZ-dpJForg9wiw&usqp=CAU"
+                    src={content.imgTitle}
                     alt=""
                 />
-                <span className="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur illo ipsum minus eum ab hic dolorum quam! Vero nisi at ut vitae! Eligendi consequatur provident deleniti architecto possimus necessitatibus ipsam!</span>
+                <span className="desc">{content.desc}</span>
                 <div className="buttons">
                     <button className="play">
                         <PlayArrowIcon />
