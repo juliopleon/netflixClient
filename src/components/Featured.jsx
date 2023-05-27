@@ -1,8 +1,21 @@
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import "./featured.scss"
+import { useEffect, useState } from 'react';
 
 export default function Featured({ type }) {
+    const [content, setContent] = useState({})
+
+    useEffect(() => {
+        const getRandomContent = async () => {
+            try {
+                const res = await axios.get(`/movies/random?type=${type}`)
+            } catch (err) {
+                console.log(err)
+            }
+        }
+    })
+
     return (
         <div className="featured">
             {type && (
