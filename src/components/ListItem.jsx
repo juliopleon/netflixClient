@@ -8,16 +8,23 @@ import axios from "axios";
 
 export default function ListItem({ index, item }) {
     const [isHovered, setIsHovered] = useState(false);
+    const [movie, setMovie] = useState({});
 
     useEffect(() => {
-        const getMovie = async () => {
+        async function getMovie() {
             try {
-                const res = await axios.get("/movies/find/" + item)
+                const res = await axios.get(`/movies/find/${item}`, {
+                    headers: {
+                        token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NTlhNWJiNmRkYjRlODg1NTMzZGRhNSIsImlzQWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjg1MDgzNzU5LCJleHAiOjE2ODU1MTU3NTl9.0fV_Lz693oIIF3vcXeWsyylhENyxvSym23C_BbIA17o"
+                    },
+                });
+                setMovie(res.data);
             } catch (err) {
-                console.log(err)
+                console.log(err);
             }
         }
-    })
+        getMovie()
+    }, [item])
     // const trailer = ""
     return (
         <div className="listItem"
@@ -26,12 +33,12 @@ export default function ListItem({ index, item }) {
             onMouseLeave={() => setIsHovered(false)}
         >
 
-            <img src={item.img}
+            <img src={movie.img}
                 alt=""
             />
             {isHovered && (
                 <>
-                    <video src={item.trailer} autoPlay={true} loop />
+                    <video src={movie.trailer} autoPlay={true} loop />
                     <div className="itemInfo">
                         <div className="icons">
                             <PlayArrowIcon className="icon" />
@@ -40,14 +47,14 @@ export default function ListItem({ index, item }) {
                             <ThumbDownOutlinedIcon className="icon" />
                         </div>
                         <div className="itemInfoTop">
-                            <span>{item.duration}</span>
-                            <span className="limit">+{item.limit}</span>
-                            <span>{item.year}</span>
+                            <span>{movie.duration}</span>
+                            <span className="limit">+{movie.limit}</span>
+                            <span>{movie.year}</span>
                         </div>
                         <div className="desc">
-                            {item.description}
+                            {movie.description}
                         </div>
-                        <div className="genre">{item.genre}</div>
+                        <div className="genre">{movie.genre}</div>
                     </div>
                 </>
             )}
