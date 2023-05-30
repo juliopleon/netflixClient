@@ -28,8 +28,8 @@ export default function List({ list }) {
             <div className="wrapper">
                 <ArrowBackIosOutlinedIcon className="sliderArrow left" onClick={() => handleClick("left")} style={{ display: !isMoved && "none" }} />
                 <div className="container" ref={listRef}>
-                    {list.content.map((item, i) => (
-                        <ListItem key={i} item={item} />
+                    {list.content.map((item, index) => (
+                        <ListItem key={index} item={item} />
                     ))}
                 </div>
                 <ArrowForwardIosOutlinedIcon className="sliderArrow right" onClick={() => handleClick("right")} />
