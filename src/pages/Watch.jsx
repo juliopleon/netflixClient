@@ -16,5 +16,5 @@ export default function Watch() {
             </Link>
             <video className="video" autoPlay progress controls src={movie.video} />
         </div>
-    );
+    )
 }
