@@ -53,7 +53,7 @@ export const Home = ({ type }) => {
                 <List key={i} list={list} />
             ))}
         </div>
-    );
+    )
 }
 
 // export default Home;
